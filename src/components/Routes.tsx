@@ -1,16 +1,16 @@
 import { Route, Switch } from "react-router-dom";
-import { SearchBar } from "./SearchBar";
+import { Main } from "./Main";
 import { SideBar } from "./SideBar";
 
 export function Routes() {
   return (
-    <Switch>
-      <Route exact path="/">
-        <>
-          <SideBar />
-          <SearchBar />
-        </>
-      </Route>
-    </Switch>
+    <>
+      <SideBar />
+      <Switch>
+        <Route exact path="/">
+          <Main />
+        </Route>
+      </Switch>
+    </>
   );
 }
