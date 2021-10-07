@@ -22,7 +22,7 @@ export function SideBar() {
         </ul>
       </Col>
       <Switch>
-        <Route exact path={`/folders/:folder`}>
+        <Route exact path={`/folders/:name`}>
           <SelectedFolder />
         </Route>
       </Switch>
