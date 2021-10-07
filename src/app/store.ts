@@ -1,6 +1,8 @@
 import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
 import counterReducer from "../features/counter/counterSlice";
+import foldersReducer from "../features/folders/foldersSlice";
 import imagesReducer from "../features/images/imagesSlice";
+import modalReducer from "../features/modal/modalSlice";
 import queryReducer from "../features/query/querySlice";
 import selectedImagesReducer from "../features/selectedImages/selectedImagesSlice";
 
@@ -10,6 +12,8 @@ export const store = configureStore({
     query: queryReducer,
     images: imagesReducer,
     selectedImages: selectedImagesReducer,
+    modal: modalReducer,
+    folders: foldersReducer,
   },
 });
 
