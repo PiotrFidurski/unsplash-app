@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { UnsplashImage } from "../images/imagesSlice";
 
 export interface Folder {
@@ -27,14 +27,18 @@ export const foldersSlice = createSlice({
       state.folders = state.folders.filter((folder) => folder.name !== payload);
       return state;
     },
-    addImages: (state, { payload }) => {
-      console.log(payload);
+    addImages: (state, { payload }: PayloadAction<Folder>) => {
       const [selectedFolder] = state.folders.filter(
         (folder) => folder.name === payload.name
       );
 
-      if (selectedFolder)
-        selectedFolder.images = [...selectedFolder.images, ...payload.images];
+      if (selectedFolder) {
+        selectedFolder.images = Array.from(
+          [...selectedFolder.images, ...payload.images]
+            .reduce((array, image) => array.set(image.id, image), new Map())
+            .values()
+        );
+      }
 
       return state;
     },

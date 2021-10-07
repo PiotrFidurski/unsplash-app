@@ -1,7 +1,8 @@
 import * as React from "react";
 import { Button, Col, Row } from "react-bootstrap";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
-import { addImages } from "../features/folders/foldersSlice";
+import { addImages } from "../features/folder/foldersSlice";
+import { resetSelectedImages } from "../features/selectedImages/selectedImagesSlice";
 
 interface Props {}
 
@@ -13,11 +14,14 @@ export const SelectFolder: React.FC<Props> = () => {
   const selectedImages = useAppSelector(
     (state) => state.selectedImages.selectedImages
   );
+
   const dispatch = useAppDispatch();
 
   function pushToFolder() {
-    if (selected)
+    if (selected) {
       dispatch(addImages({ name: selected, images: selectedImages }));
+      dispatch(resetSelectedImages());
+    }
   }
 
   return (
@@ -28,7 +32,7 @@ export const SelectFolder: React.FC<Props> = () => {
           aria-label="select-folder"
           onChange={(e) => setSelected(e.target.value)}
         >
-          <option>select folder</option>
+          <option defaultValue="default">select folder</option>
           {folders.map((folder) => (
             <option key={folder.name} value={folder.name}>
               {folder.name}
@@ -37,7 +41,16 @@ export const SelectFolder: React.FC<Props> = () => {
         </select>
       </Col>
       <Col>
-        <Button onClick={pushToFolder}>Add to folder</Button>
+        <Button
+          disabled={
+            selected === "" ||
+            selected === "select folder" ||
+            selectedImages.length === 0
+          }
+          onClick={pushToFolder}
+        >
+          Add to folder
+        </Button>
       </Col>
     </Row>
   );

@@ -1,6 +1,6 @@
 import { Badge } from "react-bootstrap";
 import { BsFolder } from "react-icons/bs";
-import { Folder as FolderType } from "../features/folders/foldersSlice";
+import { Folder as FolderType } from "../features/folder/foldersSlice";
 
 interface Props {
   folder: FolderType;
@@ -24,7 +24,7 @@ export function Folder({ folder }: Props) {
         {folder.name}
       </span>
       {folder.images.length ? (
-        <Badge pill bg="success">
+        <Badge pill bg="primary">
           {folder.images.length}
         </Badge>
       ) : (

@@ -29,9 +29,13 @@ export const selectedImagesSlice = createSlice({
 
       state.selectedImages = [...state.selectedImages, payload];
     },
+    resetSelectedImages: (state) => {
+      state.selectedImages = [];
+    },
   },
 });
 
-export const { addImageToSelected } = selectedImagesSlice.actions;
+export const { addImageToSelected, resetSelectedImages } =
+  selectedImagesSlice.actions;
 
 export default selectedImagesSlice.reducer;
