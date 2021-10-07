@@ -1,13 +1,12 @@
 import { Container, Row } from "react-bootstrap";
-import { SearchBar } from "./components/SearchBar";
-import { SideBar } from "./components/SideBar";
+import { Routes } from "./components/Routes";
 
 function App() {
   return (
     <Container className="mt-2" fluid>
       <Row>
-        <SideBar />
-        <SearchBar />
+        <Routes />
+        {/* <SearchBar /> */}
       </Row>
     </Container>
   );
