@@ -43,6 +43,21 @@ export function SearchBar() {
           Search
         </Button>
       </Form>
+      {/* folder selection */}
+      <Row className="mt-3">
+        <Col sm={4}>
+          <Form.Select aria-label="Default select example">
+            <option>Open to select folders</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </Form.Select>
+        </Col>
+        <Col>
+          <Button>Add to folder</Button>
+        </Col>
+      </Row>
+      {/* img galleries */}
       <Row className="mt-3">
         {photos.map((image) => (
           <ImageComponent image={image} key={image.id} />

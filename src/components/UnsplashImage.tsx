@@ -1,14 +1,36 @@
-import { Button, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { UnsplashImage } from "../features/images/imagesSlice";
+import { addImageToSelected } from "../features/selectedImages/selectedImagesSlice";
 
 interface Props {
   image: UnsplashImage;
 }
 
 export function ImageComponent({ image }: Props) {
+  const selectedImages = useAppSelector(
+    (state) => state.selectedImages.selectedImages
+  );
+  const dispatch = useAppDispatch();
+  function selectImage(e: React.BaseSyntheticEvent) {
+    e.stopPropagation();
+    dispatch(addImageToSelected(image.id));
+  }
+
   return (
-    <div className="col-md-4 mb-2">
-      <Card>
+    <div className="col-md-4 mb-2 mr-2">
+      <Card
+        onClick={selectImage}
+        style={
+          selectedImages.includes(image.id)
+            ? {
+                border: "2px solid #0d6efd",
+                cursor: "pointer",
+                boxSizing: "border-box",
+              }
+            : { cursor: "pointer", boxSizing: "border-box" }
+        }
+      >
         <Card.Img
           style={{
             width: "100%",
@@ -20,9 +42,7 @@ export function ImageComponent({ image }: Props) {
           alt={image.alt_description}
         />
         <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-
-          <Button variant="primary">Go somewhere</Button>
+          <Card.Title>{image.alt_description}</Card.Title>
         </Card.Body>
       </Card>
     </div>
