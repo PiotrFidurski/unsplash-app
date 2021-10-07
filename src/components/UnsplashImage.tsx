@@ -43,9 +43,6 @@ export function ImageComponent({ image }: Props) {
           src={image.urls.small}
           alt={image.alt_description}
         />
-        <Card.Body>
-          <Card.Title>{image.alt_description}</Card.Title>
-        </Card.Body>
       </Card>
     </div>
   );
