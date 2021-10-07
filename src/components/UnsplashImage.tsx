@@ -11,10 +11,12 @@ export function ImageComponent({ image }: Props) {
   const selectedImages = useAppSelector(
     (state) => state.selectedImages.selectedImages
   );
+
   const dispatch = useAppDispatch();
+
   function selectImage(e: React.BaseSyntheticEvent) {
     e.stopPropagation();
-    dispatch(addImageToSelected(image.id));
+    dispatch(addImageToSelected(image));
   }
 
   return (
@@ -22,7 +24,7 @@ export function ImageComponent({ image }: Props) {
       <Card
         onClick={selectImage}
         style={
-          selectedImages.includes(image.id)
+          selectedImages.includes(image)
             ? {
                 border: "2px solid #0d6efd",
                 cursor: "pointer",

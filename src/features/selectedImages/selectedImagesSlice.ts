@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { UnsplashImage } from "../images/imagesSlice";
 
 export interface SelectedImages {
-  selectedImages: Array<string>;
+  selectedImages: Array<UnsplashImage>;
 }
 
 const initialState: SelectedImages = {
@@ -14,14 +15,19 @@ export const selectedImagesSlice = createSlice({
   reducers: {
     addImageToSelected: (state, { payload }) => {
       const currentlySelectedImages = state.selectedImages;
-      if (currentlySelectedImages.includes(payload)) {
-        console.log("inc");
-        state.selectedImages = state.selectedImages.filter(
-          (image) => image !== payload
+
+      const isImageSelected = currentlySelectedImages.some(
+        (image) => image.id === payload.id
+      );
+
+      if (isImageSelected) {
+        state.selectedImages = currentlySelectedImages.filter(
+          (image) => image.id !== payload.id
         );
-      } else {
-        state.selectedImages = [...state.selectedImages, payload];
+        return state;
       }
+
+      state.selectedImages = [...state.selectedImages, payload];
     },
   },
 });
