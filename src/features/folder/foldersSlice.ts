@@ -42,9 +42,24 @@ export const foldersSlice = createSlice({
 
       return state;
     },
+    removeImages: (state, { payload }: PayloadAction<Folder>) => {
+      const [selectedFolder] = state.folders.filter(
+        (folder) => folder.name === payload.name
+      );
+
+      const incomingImages = payload.images.map((image) => image.id);
+
+      if (selectedFolder) {
+        selectedFolder.images = selectedFolder.images.filter(
+          (image) => !incomingImages.includes(image.id)
+        );
+      }
+
+      return state;
+    },
   },
 });
 
-export const { create, remove, addImages } = foldersSlice.actions;
+export const { create, remove, addImages, removeImages } = foldersSlice.actions;
 
 export default foldersSlice.reducer;
