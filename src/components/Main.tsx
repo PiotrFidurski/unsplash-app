@@ -8,17 +8,11 @@ import { ImageComponent } from "./UnsplashImage";
 export function Main() {
   const photos = useAppSelector((state) => state.images.images);
 
-  const folders = useAppSelector((state) => state.folders.folders);
-
-  React.useEffect(() => {
-    localStorage.setItem("folders", JSON.stringify({ folders }));
-  }, [folders]);
-
   return (
     <Col className="mt-2">
       <SearchBar />
       <SelectFolder />
-      <Row>
+      <Row className="mt-2">
         {photos.map((image) => (
           <ImageComponent image={image} key={image.id} />
         ))}
