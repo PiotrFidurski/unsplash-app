@@ -11,7 +11,9 @@ interface Props {}
 
 export const SelectedFolder: React.FC<Props> = () => {
   const { name } = useParams<{ name: string }>();
+
   const { push } = useHistory();
+
   const dispatch = useAppDispatch();
 
   const folders = useAppSelector((state) => state.folders.folders);
