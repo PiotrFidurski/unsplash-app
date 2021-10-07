@@ -9,7 +9,7 @@ interface Props {
 
 export function Folder({ folder }: Props) {
   return (
-    <Link to={`folders/${folder.name}`} style={{ textDecoration: "none" }}>
+    <Link to={`/folders/${folder.name}`} style={{ textDecoration: "none" }}>
       <li
         className="nav-item nav-link mb-2 p-0 d-flex justify-content-between align-items-center"
         style={{ cursor: "pointer" }}
