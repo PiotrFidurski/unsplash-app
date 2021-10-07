@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
-import { create } from "../features/folders/foldersSlice";
+import { create } from "../features/folder/foldersSlice";
 import { close } from "../features/modal/modalSlice";
 
 export function NewFolderModal() {
@@ -28,7 +28,6 @@ export function NewFolderModal() {
         <Modal.Header closeButton>
           <Modal.Title>Create new folder</Modal.Title>
         </Modal.Header>
-
         <Modal.Body>
           <Form.Group className="mb-3">
             <Form.Label htmlFor="folderName">Folder name: </Form.Label>

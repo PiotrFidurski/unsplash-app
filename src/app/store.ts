@@ -1,6 +1,6 @@
 import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
 import counterReducer from "../features/counter/counterSlice";
-import foldersReducer from "../features/folders/foldersSlice";
+import foldersReducer from "../features/folder/foldersSlice";
 import imagesReducer from "../features/images/imagesSlice";
 import modalReducer from "../features/modal/modalSlice";
 import queryReducer from "../features/query/querySlice";
