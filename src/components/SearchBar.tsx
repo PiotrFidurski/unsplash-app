@@ -1,8 +1,9 @@
-import { Button, Container, Form, Row } from "react-bootstrap";
+import { Button, Col, Form, Row } from "react-bootstrap";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { setImages } from "../features/images/imagesSlice";
 import { setQuery } from "../features/query/querySlice";
 import { unsplash } from "../unsplashConfig";
+import { SelectFolder } from "./SelectFolder";
 import { ImageComponent } from "./UnsplashImage";
 
 export function SearchBar() {
@@ -25,8 +26,8 @@ export function SearchBar() {
   }
 
   return (
-    <Container>
-      <Form className="mt-5 mb-5" onSubmit={handleSubmit}>
+    <Col>
+      <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
           <Form.Label htmlFor="queryInput">
             Search for an Unsplash image
@@ -43,11 +44,14 @@ export function SearchBar() {
           Search
         </Button>
       </Form>
-      <Row>
+      {/* folder selection */}
+      <SelectFolder />
+      {/* img galleries */}
+      <Row className="mt-3">
         {photos.map((image) => (
           <ImageComponent image={image} key={image.id} />
         ))}
       </Row>
-    </Container>
+    </Col>
   );
 }

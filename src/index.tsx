@@ -4,12 +4,16 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import App from "./App";
 import { store } from "./app/store";
+import { NewFolderModal } from "./components/NewFolderModal";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <>
+        <App />
+        <NewFolderModal />
+      </>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
