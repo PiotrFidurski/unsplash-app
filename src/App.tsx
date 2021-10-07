@@ -1,12 +1,7 @@
-import React from "react";
-import { Counter } from "./features/counter/Counter";
+import Container from "react-bootstrap/Container";
 
 function App() {
-  return (
-    <div>
-      <Counter />
-    </div>
-  );
+  return <Container></Container>;
 }
 
 export default App;
