@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import { store } from "./app/store";
 import { NewFolderModal } from "./components/NewFolderModal";
+import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(

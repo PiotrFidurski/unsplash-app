@@ -25,7 +25,7 @@ export const SelectFolder: React.FC<Props> = () => {
   }
 
   return (
-    <Row>
+    <Row className="mt-2">
       <Col sm={4}>
         <select
           className="form-select"

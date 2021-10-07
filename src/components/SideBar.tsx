@@ -11,15 +11,21 @@ export function SideBar() {
   const dispatch = useAppDispatch();
   return (
     <>
-      <Col sm={3} className="mt-2">
-        <Button variant="secondary" onClick={() => dispatch(open())}>
-          Create folder
-        </Button>
-        <ul className="mt-3 nav nav-pills flex-column mb-auto">
-          {state.folders.map((folder) => (
-            <Folder key={folder.name} folder={folder} />
-          ))}
-        </ul>
+      <Col sm={3} className="mw-100 bg-dark sm-50 sidebarContainer">
+        <div className="mw-100 p-2">
+          <Button
+            variant="secondary"
+            className="w-100"
+            onClick={() => dispatch(open())}
+          >
+            Create folder
+          </Button>
+          <ul className="mt-3 nav nav-pills flex-column mb-auto">
+            {state.folders.map((folder) => (
+              <Folder key={folder.name} folder={folder} />
+            ))}
+          </ul>
+        </div>
       </Col>
       <Switch>
         <Route exact path={`/folders/:name`}>

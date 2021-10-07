@@ -9,22 +9,13 @@ interface Props {
 
 export function Folder({ folder }: Props) {
   return (
-    <Link to={`/folders/${folder.name}`} style={{ textDecoration: "none" }}>
+    <Link to={`/folders/${folder.name}`}>
       <li
-        className="nav-item nav-link mb-2 p-0 d-flex justify-content-between align-items-center"
+        className="nav-item nav-link mb-2 p-2 d-flex justify-content-between align-items-center sidebar-item"
         style={{ cursor: "pointer" }}
       >
         <BsFolder className="bi me-2" width="1rem" height="1rem" />
-        <span
-          style={{
-            maxWidth: "80px",
-            overflow: "hidden",
-            whiteSpace: "nowrap",
-            textOverflow: "ellipsis",
-          }}
-        >
-          {folder.name}
-        </span>
+        <span className="wrapElipsis">{folder.name}</span>
         {folder.images.length ? (
           <Badge pill bg="primary">
             {folder.images.length}
