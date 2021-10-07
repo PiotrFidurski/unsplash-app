@@ -10,7 +10,7 @@ export interface UnsplashImage {
   id: string;
   alt_description: string;
   description: string;
-  urls: Array<UnsplashUrls>;
+  urls: UnsplashUrls;
 }
 
 export interface ImagesState {
