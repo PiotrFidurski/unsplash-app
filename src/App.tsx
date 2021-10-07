@@ -6,7 +6,6 @@ function App() {
     <Container className="mt-2" fluid>
       <Row>
         <Routes />
-        {/* <SearchBar /> */}
       </Row>
     </Container>
   );
