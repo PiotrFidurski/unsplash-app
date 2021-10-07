@@ -1,0 +1,41 @@
+a {
+  text-decoration: none;
+}
+
+button {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.sidebarContainer {
+  height: auto !important;
+}
+
+.sidebar-item:hover {
+  background: rgba(0 0 0 / 10%) !important;
+}
+
+.wrapElipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+span {
+  max-width: 100px;
+}
+
+h2 {
+  max-width: 150px;
+}
+
+@media only screen and (min-width: 600px) {
+  .sidebarContainer {
+    height: 100vw !important;
+  }
+
+  button {
+    width: auto;
+    margin-top: 0;
+  }
+}
