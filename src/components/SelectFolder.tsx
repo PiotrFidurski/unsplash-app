@@ -1,21 +1,43 @@
 import * as React from "react";
-import { Button, Col, Form, Row } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
+import { addImages } from "../features/folders/foldersSlice";
 
 interface Props {}
 
 export const SelectFolder: React.FC<Props> = () => {
+  const [selected, setSelected] = React.useState("");
+
+  const folders = useAppSelector((state) => state.folders.folders);
+
+  const selectedImages = useAppSelector(
+    (state) => state.selectedImages.selectedImages
+  );
+  const dispatch = useAppDispatch();
+
+  function pushToFolder() {
+    if (selected)
+      dispatch(addImages({ name: selected, images: selectedImages }));
+  }
+
   return (
     <Row className="mt-3">
       <Col sm={4}>
-        <Form.Select aria-label="select-folder">
+        <select
+          className="form-select"
+          aria-label="select-folder"
+          onChange={(e) => setSelected(e.target.value)}
+        >
           <option>select folder</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </Form.Select>
+          {folders.map((folder) => (
+            <option key={folder.name} value={folder.name}>
+              {folder.name}
+            </option>
+          ))}
+        </select>
       </Col>
       <Col>
-        <Button>Add to folder</Button>
+        <Button onClick={pushToFolder}>Add to folder</Button>
       </Col>
     </Row>
   );

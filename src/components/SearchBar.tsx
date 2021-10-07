@@ -44,9 +44,7 @@ export function SearchBar() {
           Search
         </Button>
       </Form>
-      {/* folder selection */}
       <SelectFolder />
-      {/* img galleries */}
       <Row className="mt-3">
         {photos.map((image) => (
           <ImageComponent image={image} key={image.id} />
