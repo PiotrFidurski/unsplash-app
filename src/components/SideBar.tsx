@@ -11,7 +11,7 @@ export function SideBar() {
   const dispatch = useAppDispatch();
   return (
     <>
-      <Col sm={2}>
+      <Col sm={3} className="mt-2">
         <Button variant="secondary" onClick={() => dispatch(open())}>
           Create folder
         </Button>

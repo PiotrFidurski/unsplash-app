@@ -3,7 +3,7 @@ import { Routes } from "./components/Routes";
 
 function App() {
   return (
-    <Container className="mt-2" fluid>
+    <Container fluid>
       <Row>
         <Routes />
       </Row>
