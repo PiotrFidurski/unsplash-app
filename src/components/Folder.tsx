@@ -1,9 +1,37 @@
-import * as React from "react";
+import { Badge } from "react-bootstrap";
+import { BsFolder } from "react-icons/bs";
+import { Folder as FolderType } from "../features/folders/foldersSlice";
 
 interface Props {
-  folder: any;
+  folder: FolderType;
 }
 
 export function Folder({ folder }: Props) {
-  return <>hello</>;
+  return (
+    <li
+      className="nav-item nav-link mb-2 p-0 d-flex justify-content-between align-items-center"
+      style={{ cursor: "pointer" }}
+    >
+      <BsFolder className="bi me-2" width="1rem" height="1rem" />
+      <span
+        style={{
+          maxWidth: "80px",
+          overflow: "hidden",
+          whiteSpace: "nowrap",
+          textOverflow: "ellipsis",
+        }}
+      >
+        {folder.name}
+      </span>
+      {folder.images.length ? (
+        <Badge pill bg="success">
+          {folder.images.length}
+        </Badge>
+      ) : (
+        <Badge pill bg="danger">
+          {folder.images.length}
+        </Badge>
+      )}
+    </li>
+  );
 }

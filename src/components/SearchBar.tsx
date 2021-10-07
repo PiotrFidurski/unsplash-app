@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { setImages } from "../features/images/imagesSlice";
 import { setQuery } from "../features/query/querySlice";
 import { unsplash } from "../unsplashConfig";
+import { SelectFolder } from "./SelectFolder";
 import { ImageComponent } from "./UnsplashImage";
 
 export function SearchBar() {
@@ -44,19 +45,7 @@ export function SearchBar() {
         </Button>
       </Form>
       {/* folder selection */}
-      <Row className="mt-3">
-        <Col sm={4}>
-          <Form.Select aria-label="Default select example">
-            <option>Open to select folders</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </Form.Select>
-        </Col>
-        <Col>
-          <Button>Add to folder</Button>
-        </Col>
-      </Row>
+      <SelectFolder />
       {/* img galleries */}
       <Row className="mt-3">
         {photos.map((image) => (

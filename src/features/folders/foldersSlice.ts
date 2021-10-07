@@ -1,18 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { UnsplashImage } from "../images/imagesSlice";
 
-interface UnsplashUrls {
-  full: string;
-  small: string;
-  thumb: string;
-}
-
-export interface UnsplashImage {
-  id: string;
-  alt_description: string;
-  description: string;
-  urls: UnsplashUrls;
-}
-interface Folder {
+export interface Folder {
   name: string;
   images: Array<UnsplashImage>;
 }
